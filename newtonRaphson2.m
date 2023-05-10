@@ -27,31 +27,19 @@ endfunction
 
 function [y, jac] = f(x) #linea 14
 y = zeros (3, 1); # tengo un sisema de dos filas con una columnas d epuros zeros
-y(1) = x(1)^2 + x(2).^2-x(3)-2; # es la primera funcion
-y(2) = x(1)^2-x(2)^2-x(3); # es la segunda funcion
-y(3)=3*x(1)+2*x(2)-6*x(3); # es la 3era funcion
 
   #Si uisiera un sistema con 2 funciones tendria que tener esto envez de lo anterior:
-  #y = zeros (2, 1);
-  #y(1) = x(1)^2 + x(2)^2-x(1);
-  #y(2) = x(1)^2-x(2)^2-x(2);
+  y = zeros (2, 1);
+  y(1) = x(1) + 2*x(2)-2;
+  y(2) = x(1).^2-4*x(2).^2-4;
 
     # aqui se guardan los datos de las derivadas parciales de cada matriz jacobiana
-    jac = zeros (3, 3);
-    jac(1,1) =2*x(1);
-    jac(1,2) =2*x(2);
-    jac(1,3) =-1;
-    jac(2,1) =2*x(1);
-    jac(2,2) = -2*x(2);
-    jac(2,3) =-1;
-    jac(3,1) =3;
-    jac(3,2) =2;
-    jac(3,3) =-6;
+
 
     #Si fuese una matriz 2x2, tendiramos que guardar la posiciones de 4 posiciones envez d e 9
-    #jac = zeros(2,2);
-    #jac(1,1)=2*x(1)-1;
-    #jac(1,2)=2*x(2);
-    #jac(2,1)=2*x(1);
-    #jac(2,2)=-2*x(2)-1;
+    jac = zeros(2,2);
+    jac(1,1)=1;
+    jac(1,2)=2;
+    jac(2,1)=2*x(1);
+    jac(2,2)=-8*x(2);
     endfunction
