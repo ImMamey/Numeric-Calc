@@ -1,0 +1,26 @@
+>> vander(x)
+ans =
+
+    1.0000    1.0000    1.0000    1.0000
+    3.3750    2.2500    1.5000    1.0000
+    8.0000    4.0000    2.0000    1.0000
+   15.6250    6.2500    2.5000    1.0000
+
+>> V=vander(x);
+>> cond(V)
+ans =  1329.4
+>> cond(sigmoid(x))
+error: 'sigmoid' undefined near line 1 column 6
+error: evaluating argument list element number 1
+>> V\y'
+ans =
+
+    3.6000
+  -19.2000
+   35.3000
+  -18.4000
+
+>> # da lo mismo que esto anterior por la matriz de vander: f=@(x)3.6*x.^3 - 19.2*x.^2 + 35.3*x.^1 - 18.4
+>> diary on
+>> diary vander
+>> diary vander2
