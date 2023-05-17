@@ -1,0 +1,45 @@
+>> x=[1 1.5 2 2.5]
+x =
+
+   1.0000   1.5000   2.0000   2.5000
+
+>> y=[1.3 3.5 4.2 6.1]
+y =
+
+   1.3000   3.5000   4.2000   6.1000
+
+>> interpl(x,y,1.5)
+error: 'interpl' undefined near line 1 column 1
+>> interp1(x,y,1.5)
+ans =  3.5000
+>> interp1(x,y,1.2)
+ans =  2.1800
+>> x1=1:0.01:6;
+>> y1=interp1(x,y,x1);
+>> plot(x1,y1)
+>> x1=1:0.01:2.5;
+>> y1=interp1(x,y,x1);
+>> plot(x1,y1)
+>> plot(x1,y1,x,y,'o')
+>> polyfit(x,y,2)
+ans =
+
+  -0.30000   4.07000  -2.33500
+
+>> polyfit(x,y,3)
+ans =
+
+    3.6000  -19.2000   35.3000  -18.4000
+
+>> polyout(ans,'x')
+3.6*x^3 - 19.2*x^2 + 35.3*x^1 - 18.4
+>> f=@(x)3.6*x.^3 - 19.2*x.^2 + 35.3*x.^1 - 18.4
+f =
+
+@(x) 3.6 * x .^ 3 - 19.2 * x .^ 2 + 35.3 * x .^ 1 - 18.4
+
+>> ezplot(f)
+>> ezplot(f,[1,2.5])
+>> dairy vander
+error: 'dairy' undefined near line 1 column 1
+>> diary vander
