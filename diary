@@ -1,0 +1,131 @@
+>> f=@(x,y)x+y
+f =
+
+@(x, y) x + y
+
+>> M=euler(f,0,0,1,5)
+error: attempted to use a complex scalar as an index
+       (forgot to initialize i or j?)
+error: called from
+    euler at line 13 column 11
+error: assignment failed, or no method for 'matrix = scalar'
+error: called from
+    euler at line 13 column 11
+>> M=euler(f,0,0,1,5)
+M =
+
+   0.00000   0.00000
+   0.20000   0.00000
+   0.40000   0.04000
+   0.60000   0.12800
+   0.80000   0.27360
+   1.00000   0.48832
+
+M =
+
+   0.00000   0.00000
+   0.20000   0.00000
+   0.40000   0.04000
+   0.60000   0.12800
+   0.80000   0.27360
+   1.00000   0.48832
+
+>> M=eulermejorado(f,0,0,1,10)
+error: eulermejorado: subscript indices must be either positive integers less than 2^31 or logicals
+error: called from
+    eulermejorado at line 14 column 11
+>> M=eulermejorado(f,0,0,1,10)
+M =
+
+   0.00000   0.00000
+   0.10000   0.00500
+   0.20000   0.02103
+   0.30000   0.04923
+   0.40000   0.09090
+   0.50000   0.14745
+   0.60000   0.22043
+   0.70000   0.31157
+   0.80000   0.42279
+   0.90000   0.55618
+   1.00000   0.71408
+
+>> f=@(x,y)3x+3y
+parse error:
+
+  syntax error
+
+>>> f=@(x,y)3x+3y
+             ^
+
+>> f=@(x,y)3*x+3*y
+f =
+
+@(x, y) 3 * x + 3 * y
+
+>> #pdf practica de euler, ejercicio 1
+>> M=euler(f,0,1,1,10)
+M =
+
+    0.00000    1.00000
+    0.10000    1.30000
+    0.20000    1.72000
+    0.30000    2.29600
+    0.40000    3.07480
+    0.50000    4.11724
+    0.60000    5.50241
+    0.70000    7.33314
+    0.80000    9.74308
+    0.90000   12.90600
+    1.00000   17.04780
+
+>> #parte 2 del problema: comparar con la solucion exacta, y calcular el error.
+>> M(:,2)
+ans =
+
+    1.0000
+    1.3000
+    1.7200
+    2.2960
+    3.0748
+    4.1172
+    5.5024
+    7.3331
+    9.7431
+   12.9060
+   17.0478
+
+>> g=@(x,y)(4/3)*exp(3*x)-x-(1/3)
+g =
+
+@(x, y) (4 / 3) * exp (3 * x) - x - (1 / 3)
+
+>> g(0)
+ans =  1
+>> #guardamos el vector de las sluciones aproximadas
+>> Ye=M(:,2);
+>> X=M(:,1);
+>> #las soluciones exactas:
+>> Y=g(X);
+>> abs(Ye-Y)
+ans =
+
+   0.00000
+   0.06648
+   0.17616
+   0.35014
+   0.61869
+   1.02501
+   1.63045
+   2.52176
+   3.82116
+   5.70031
+   8.39958
+
+>> # ahora la pregunta 3, es graficar la sol exacta y aproximada
+>> #es decir X ^ Y son los valores aproximados. qu podemos graficar junto con la funcion G
+>> plot(X,Ye,X,Ye)
+>> plot(x,y,'o', X,Ye)
+error: 'x' undefined near line 1 column 6
+error: evaluating argument list element number 1
+>> plot(X,Y,'o', X,Ye)
+>> diary off
