@@ -1,0 +1,62 @@
+>> f=@(x,y)x.^2-(3*y)
+f =
+
+@(x, y) x .^ 2 - (3 * y)
+
+>> M=eulermejorado(f,0,0,1,10)
+M =
+
+   0.00000   0.00000
+   0.10000   0.00050
+   0.20000   0.00272
+   0.30000   0.00793
+   0.40000   0.01706
+   0.50000   0.03081
+   0.60000   0.04970
+   0.70000   0.07413
+   0.80000   0.10437
+   0.90000   0.14066
+   1.00000   0.18314
+
+>> M=eulermejorado(f,0,1,1,10)
+M =
+
+   0.00000   1.00000
+   0.10000   0.74550
+   0.20000   0.55775
+   0.30000   0.42142
+   0.40000   0.32511
+   0.50000   0.26031
+   0.60000   0.22068
+   0.70000   0.20151
+   0.80000   0.19927
+   0.90000   0.21136
+   1.00000   0.23581
+
+>> # pregunta 2, un polinomio de segudno grado
+>> polyfit(M(:1),M(:,2),2)
+parse error:
+
+  syntax error
+
+>>> polyfit(M(:1),M(:,2),2)
+               ^
+
+>> polyfit(M(:,1),M(:,2),2)
+ans =
+
+   1.42990  -2.11874   0.95697
+
+>> # ^ este es el valor del polinomio, lo guardremos en una varaible
+>> p=polyfit(M(:,1),M(:,2),2)
+p =
+
+   1.42990  -2.11874   0.95697
+
+>> "evalyuamos en 1.25 como pide la pregunta 2
+error: unterminated character string constant
+parse error:
+
+>>> "evalyuamos en 1.25 como pide la pregunta 2
+                                              ^
+
