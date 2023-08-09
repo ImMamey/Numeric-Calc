@@ -1,0 +1,12 @@
+x=[3 7 11 15 19 23 27 30 33];
+y=[87.5 79.3 74.2 65 62.5 60 59.8 54.3 52.1];
+z=log(y);
+p=polyfit(x,z,1);
+A=p(1);
+B=p(2);
+C=exp(B);
+plot(x,y,'*');
+hold on;
+x=linspace(0,33,100);
+plot(x,C*exp(A*x));
+display(p);
