@@ -13,13 +13,13 @@
 </table>
 
 ---
-## ABOUT
+## About
 This repository contains matlab and octave code used on the class "Numeric Calc".
 
 The codes are not in order whatsoever. All `.txt` files are logs of using the codes (that includes the dairies)
 
 ---
-## REQUIREMENTS
+## Requirements
 * [Octave 8.2.0](https://octave.org/download)
 
 ## License
