@@ -1,5 +1,5 @@
-function M=rk4(f,xo,yo,xf,n)
-h=(xf-xo)/n; #
+function M=rk4(f,xo,yo,xf,h)
+n=(xf-xo)/h; #
 X=zeros(1,n+1); Y=zeros(1,n+1); #generamos los valores de los vecotres
 Y(1)=yo;
 X=xo:h:xf;
